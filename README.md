@@ -1,1 +1,1 @@
-# nyc-airbnb-prediction-ml
+# London Airbnb Prediction ML Model
