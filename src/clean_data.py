@@ -11,7 +11,7 @@ Options:
 --input_file_path=<input_file_path>			Path to folder and file name where the raw file is stored, including the name, `in quotes.
 """
 
-# Imporp dependencies
+# Import dependencies
 import pandas as pd
 from docopt import docopt
 import os
@@ -30,7 +30,10 @@ def main(output_file_path, input_file_path):
                     'maximum_minimum_nights', 'minimum_maximum_nights', 'maximum_maximum_nights',
                     'calendar_updated', 'has_availability', 'availability_30', 'availability_60',
                     'availability_90', 'availability_365', 'calendar_last_scraped',
-                    'number_of_reviews_l30d', 'license'
+                    'number_of_reviews_l30d', 'license', 'calculated_host_listings_count',
+                    'calculated_host_listings_count_entire_homes',
+                    'calculated_host_listings_count_private_rooms',
+                    'calculated_host_listings_count_shared_rooms'
                     ]
     clean_df = raw_df.drop(columns=drop_columns)
 
@@ -47,7 +50,7 @@ def main(output_file_path, input_file_path):
         clean_df.to_csv(output_file_path, index = False)
     except:
         os.makedirs(os.path.dirname(output_file_path))
-        raw_df.to_csv(output_file_path, index = False)
+        clean_df.to_csv(output_file_path, index = False)
 
 if __name__ == "__main__":
     main(opt["--output_file_path"], opt["--input_file_path"])

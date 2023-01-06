@@ -11,7 +11,7 @@ Options:
 --url=<url>			        URL to the online dataset, in quotes.
 """
 
-# Imporp dependencies
+# Import dependencies
 import pandas as pd
 from docopt import docopt
 import os
