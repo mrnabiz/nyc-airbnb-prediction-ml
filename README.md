@@ -36,3 +36,10 @@ Download the data by running `src/model_building/feat_eng.py`:\
     `--input_file_path`  should be the path where the preprocessed data is stored.
 
     python src/model_building/feat_eng.py --output_file_path="data/preprocessed/feat_eng_df.csv" --input_file_path="data/preprocessed/preprocessed_df.csv"
+
+## Run the baseline linear regression model
+Download the data by running `src/model_building/baseline_model.py`:\
+    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes.\
+    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes.
+
+    python src/model_building/baseline_model.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"

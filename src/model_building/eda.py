@@ -112,14 +112,14 @@ def main(output_dir, clean_df_file_path, preprocessed_df_file_path):
     try:
         save_chart(missing_values_plot, outpt_missing_png, 2)
         save_chart(numeric_cols_hist, output_hist_png, 2)
-        dfi.export(corr_df, output_corr_matrix)
+        dfi.export(corr_df, output_corr_matrix, dpi=200)
         save_chart(numeric_cols_corr, output_corr_plot, 2)
 
     except:
         os.makedirs(os.path.dirname(outpt_missing_png))
         save_chart(missing_values_plot, outpt_missing_png, 2)
         save_chart(numeric_cols_hist, output_hist_png, 2)
-        dfi.export(corr_df, output_corr_matrix)
+        dfi.export(corr_df, output_corr_matrix, dpi=200)
         save_chart(numeric_cols_corr, output_corr_plot, 2)
 
 if __name__ == "__main__":
