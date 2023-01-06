@@ -38,11 +38,11 @@ def main(output_file_path, input_file_path):
                                  'review_scores_value'
                                  ]
     
-    clean_df_reduced = clean_df.drop(columns=preprocessed_drop_columns)
+    preprocessed_df = clean_df.drop(columns=preprocessed_drop_columns)
 
     # Drop Null Target rows
-    preprocessed_df = clean_df_reduced.dropna(subset=['last_review','description','name',
-                                                      'minimum_nights_avg_ntm'])
+    preprocessed_df.dropna(subset=['last_review','description','name',
+                                    'minimum_nights_avg_ntm'], inplace=True)
 
     # Fix the date time columns
     preprocessed_df['host_since'] = pd.to_datetime(preprocessed_df['host_since'])
@@ -53,15 +53,15 @@ def main(output_file_path, input_file_path):
     preprocessed_df['price'] = preprocessed_df['price'].str.replace(
                                                                     '$', '').str.replace(
                                                                     ',', '')
-    
     preprocessed_df['price'] = preprocessed_df['price'].astype(float)
 
     # Fix the amenities column for the countvectorizer
     preprocessed_df['amenities'] = preprocessed_df['amenities'].str.replace(
-                                                                            '[', '').str.replace(
-                                                                            ']', '').str.replace(
-                                                                            '"', '')
+                                                                            '[', ' ').str.replace(
+                                                                            ']', ' ').str.replace(
+                                                                            '"', ' ')
     
+
     # Write the csv file
     try:
         preprocessed_df.to_csv(output_file_path, index = False)
