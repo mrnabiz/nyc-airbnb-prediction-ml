@@ -27,6 +27,7 @@ def preprocessor():
     ----------
         A sklearn column trnasformer object
     """
+    
     # Create feature lists
     categorical_features = ['neighbourhood_cleansed', 'room_type']
     binary_features = ['host_is_superhost', 'instant_bookable']
@@ -34,20 +35,18 @@ def preprocessor():
     sentiment_levels = ['Positive', 'Neutral', 'Negative']
     numeric_features = ['host_listings_count', 'accommodates', 'price', 'minimum_nights', 
                         'minimum_nights', 'number_of_reviews', 'time_diff', 'review_scores_rating']
-    name_feature = 'name'
-    description_feature = 'description'
     amenities_feature = 'amenities'
-    drop_features = ['id', 'latitude', 'longitude', 'minimum_nights_avg_ntm', 'maximum_nights_avg_ntm']
+    drop_features = ['id', 'latitude', 'longitude', 'minimum_nights_avg_ntm', 'maximum_nights_avg_ntm', 'name', 'description']
     
     # Create transformers
     categorical_transformer = OneHotEncoder(handle_unknown="ignore", sparse=False)
-    binary_trnasformer = OneHotEncoder(drop="if_binary")
+    binary_trnasformer = OneHotEncoder(drop="if_binary", sparse=False)
     ordinal_transformer = OrdinalEncoder(categories=[sentiment_levels],
                                          dtype=int, 
                                          handle_unknown='use_encoded_value', 
                                          unknown_value=-1)
     numeric_transformer = make_pipeline(PolynomialFeatures(degree=2), StandardScaler())
-    text_transformer = CountVectorizer(stop_words='english', max_features=500)
+    text_transformer = CountVectorizer(stop_words='english', max_features=1000)
     
     # Create the preprocessor by combining the list of features and transformers
     preprocessor = make_column_transformer(
@@ -55,8 +54,6 @@ def preprocessor():
         (binary_trnasformer, binary_features),
         (ordinal_transformer, ordinal_features),
         (numeric_transformer, numeric_features),
-        (text_transformer, name_feature),
-        (text_transformer, description_feature),
         (text_transformer, amenities_feature),
         ('drop', drop_features)
         )
