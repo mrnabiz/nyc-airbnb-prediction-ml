@@ -70,16 +70,21 @@ def main(output_dir, input_file_path):
     # Form the results dictionary to save the linear model results along with
     # baseline model
     results = {}
+    scores = {}
 
     # Simple baseline LR model
     lr_model = LinearRegression()
     lr_pipeline = make_pipeline(preprocessor(), lr_model)
     lr_pipeline.fit(X_train, y_train)
+    scores['Baseline_LR'] = str(round(100*lr_pipeline.score(X_test, 
+                                                            y_test), 3)) + ' %'
 
     # Ridge Model
     ridge_model = Ridge(random_state=123)
     ridge_pipeline = make_pipeline(preprocessor(), ridge_model)
     ridge_pipeline.fit(X_train, y_train)
+    scores['Ridge'] = str(round(100*ridge_pipeline.score(X_test, 
+                                                         y_test), 3)) + ' %'
 
     # Best Ridge Model (Hyperparameter alpha, optimized)
     # Hyper parameter search
@@ -97,6 +102,9 @@ def main(output_dir, input_file_path):
     best_ridge_model = Ridge(random_state=123, alpha=best_alpha_ridge)
     best_ridge_pipeline = make_pipeline(preprocessor(), best_ridge_model)
     best_ridge_pipeline.fit(X_train, y_train)
+    scores['Best_Ridge'] = str(round(100*best_ridge_pipeline.score(X_test, 
+                                                                   y_test), 
+                                                                   3)) + ' %'
 
     # Form the transformed columns and the coeffs list
     transformer_stage = lr_pipeline.named_steps['columntransformer']
@@ -231,6 +239,7 @@ def main(output_dir, input_file_path):
 
     # Save the results dictionary to a pickle file
     output_results_dict = output_dir + '/results_dict.pkl'
+    output_scores_dict = output_dir + '/scores_dict.pkl'
     output_results_df_png = output_dir + '/01_baseline_results_df.png'
     output_coeffs_df = output_dir + '/lr_coeffs_df.csv'
     output_coeffs_baseline_lr_plt = output_dir + '/02_baseline_coeff_plt.png'
@@ -240,6 +249,8 @@ def main(output_dir, input_file_path):
         dfi.export(results_df, output_results_df_png, dpi=200)
         with open(output_results_dict, 'wb') as f:
             pickle.dump(results, f)
+        with open(output_scores_dict, 'wb') as f:
+            pickle.dump(scores, f)
         coefs.to_csv(output_coeffs_df, index = False)
         save_chart(coefs_barplot_baseline_lr, output_coeffs_baseline_lr_plt, 2)
         save_chart(coefs_barplot_ridge, output_coeffs_ridge_plt, 2)
@@ -249,6 +260,8 @@ def main(output_dir, input_file_path):
         dfi.export(results_df, output_results_df_png, dpi=200)
         with open(output_results_dict, 'wb') as f:
             pickle.dump(results, f)
+        with open(output_scores_dict, 'wb') as f:
+            pickle.dump(scores, f)
         coefs.to_csv(output_coeffs_df, index = False)
         save_chart(coefs_barplot_baseline_lr, output_coeffs_baseline_lr_plt, 2)
         save_chart(coefs_barplot_ridge, output_coeffs_ridge_plt, 2)
