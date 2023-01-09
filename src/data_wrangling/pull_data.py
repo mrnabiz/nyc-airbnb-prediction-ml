@@ -7,7 +7,8 @@ The latest version is released on September 10th, 2022
 Usage: pull_data.py --file_path=<file_path> --url=<url>
  
 Options:
---file_path=<file_path>		Path to folder and file name where the file will be saved, including the name, `in quotes.
+--file_path=<file_path>		Path to folder and file name where the file will be
+ saved, including the name, `in quotes.
 --url=<url>			        URL to the online dataset, in quotes.
 """
 
