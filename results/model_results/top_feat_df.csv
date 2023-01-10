@@ -1,0 +1,21 @@
+LGBMRegressor,XGBRegressor
+minimum_nights time_diff,kettle
+price number_of_reviews,clothing
+number_of_reviews,dedicated
+time_diff,host_listings_count number_of_reviews
+host_listings_count number_of_reviews,price number_of_reviews
+essentials,products
+number_of_reviews review_scores_rating,dining
+central,number_of_reviews
+host_listings_count price,central
+heating,heating
+host_listings_count,essentials
+host_listings_count minimum_nights,dishes
+number_of_reviews time_diff,number_of_reviews review_scores_rating
+minimum_nights number_of_reviews,shower
+time_diff review_scores_rating,storage
+price minimum_nights,radiant
+dedicated,soap
+accommodates time_diff,instant_bookable_t
+host_listings_count time_diff,tv
+host_listings_count review_scores_rating,u2013
