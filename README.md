@@ -1,10 +1,12 @@
-# Zero to Hero Machine Learning Pipeline with London Airbnb Open Data 
+# Zero to Hero Machine Learning Pipeline: London Airbnb Open Data 
 ## Introduction
-"He was no one, Zero, Zero
-Now he's a honcho, He's a hero, hero!"
+**"He was no one, Zero, Zero
+Now he's a honcho, He's a hero, hero!"**
 Isn't this familiar? Absolutely it is. No way you could forger about Disney's
 cool animation, Hercules.
+
 ![hercules.png](https://static.wikia.nocookie.net/disney/images/f/fa/Zero_to_Hero.png)
+[Source](https://disney.fandom.com/wiki/Zero_to_Hero)
 
 ## Download and store the raw data
 Download the data by running `src/data_wrangling/pull_data.py`:\
