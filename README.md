@@ -8,6 +8,23 @@ cool animation, Hercules.
 ![hercules.png](https://static.wikia.nocookie.net/disney/images/f/fa/Zero_to_Hero.png)
 [Source](https://disney.fandom.com/wiki/Zero_to_Hero)
 
+"Zero to Hero" is a phrase that is often used to describe a transformation from 
+a novice or beginner to an expert or accomplished individual. It can also refer 
+to a person who starts with very little and through hard work and determination,
+ becomes successful. Throughout this journey, I want to take you to a 
+step-by-step guide on building a regression Machine Learning pipeline.
+
+This mini-project is about building a regression pipeline to predict the 
+`number of reviews per month` of each Airbnb property, trained based on a 
+dataset collected on September 2022 in London.
+
+## Dataset
+The dataset to build this pipeline was captured from [Detailed Airbnb Listing Data (London, Sep 2022)](https://www.kaggle.com/datasets/mrnabiz/detailed-airbnb-listing-data-london-sep-2022) on
+ Kaggle. The originad data was prepared by [Inside Airbnb project](http://insideairbnb.com/). 
+ The mission of Inside Airbnb is to empower residential communities with data 
+ and information that enables them to understand, make decisions and have 
+ control over the effects of Airbnb's presence in their neighborhoods.
+
 ## Download and store the raw data
 Download the data by running `src/data_wrangling/pull_data.py`:\
     `--file_path` should be the path where the data will be saved,\
