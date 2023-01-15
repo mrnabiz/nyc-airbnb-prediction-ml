@@ -28,12 +28,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from docopt import docopt
 import os
-import dataframe_image as dfi
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import (
-    GradientBoostingRegressor,
-    RandomForestRegressor
-)
 from lightgbm.sklearn import LGBMRegressor
 from xgboost import XGBRegressor
 from sklearn.pipeline import make_pipeline
