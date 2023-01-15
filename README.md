@@ -29,15 +29,19 @@ This pipeline can be reproduced by cloning the GitHub repository, installing the
 
 **Step 2**: Install the [Conda](https://docs.conda.io/en/latest/) environment by running the code below:
 
-    git clone git@github.com:mrnabiz/zero-to-hero-ml-pipline.git
+    conda env create -f environment.yml
 
-## Download and store the raw data
-Download the data by running `src/data_wrangling/pull_data.py`:\
-    `--file_path` should be the path where the data will be saved,\
-    `--url` should be the link to the data
+Now you have the required files and dependencies to reproduce the pipeline and deploy it. To build the pipeline and render the report, you have two options:
+1. Run the commands, generate the results, and store them step-by-step (To understand the pipeline building stages, I highly recommend you choosing this option.)
+2. Run the commands all in once with `make` command
 
+### Option 1: Running step-by-step scripts to build th pipeline
+Navigate to the repository's root folder in CLI and follow the steps below:
+
+**Step 1**: Download the raw data by running `src/data_wrangling/pull_data.py`:\
+`--file_path` should be the path where the data will be saved,\
+`--url` should be the link to the data
     python src/data_wrangling/pull_data.py --file_path="data/raw/raw_df.csv" --url="http://data.insideairbnb.com/united-kingdom/england/london/2022-09-10/data/listings.csv.gz"
-
 ## Clean the raw data frame to remove unnecessary columns
 Download the data by running `src/data_wrangling/clean_data.py`:\
     `--output_file_path` should be the path where the clean data will be saved,\
