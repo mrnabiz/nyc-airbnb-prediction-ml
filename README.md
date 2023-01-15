@@ -24,8 +24,11 @@ This pipeline is created in Python, using a group of ML models from [scikit-lear
 This pipeline can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project. To run this model follow the below steps:
 
 1. Clone this repository by running the code below in CLI:
+
     git clone git@github.com:mrnabiz/zero-to-hero-ml-pipline.git
+
 2. Install the [Conda](https://docs.conda.io/en/latest/) environment by running the code below:
+
     git clone git@github.com:mrnabiz/zero-to-hero-ml-pipline.git
 
 ## Download and store the raw data
