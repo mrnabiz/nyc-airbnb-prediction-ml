@@ -41,6 +41,7 @@ Navigate to the repository's root folder in CLI and follow the steps below:
 **Step 1**: Download the raw data by running `src/data_wrangling/pull_data.py`:\
 `--file_path` should be the path where the data will be saved,\
 `--url` should be the link to the data
+
     python src/data_wrangling/pull_data.py --file_path="data/raw/raw_df.csv" --url="http://data.insideairbnb.com/united-kingdom/england/london/2022-09-10/data/listings.csv.gz"
 ## Clean the raw data frame to remove unnecessary columns
 Download the data by running `src/data_wrangling/clean_data.py`:\
