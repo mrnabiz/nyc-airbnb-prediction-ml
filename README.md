@@ -2,44 +2,31 @@
 ## Introduction
 **"He was no one, Zero, Zero
 Now he's a honcho, He's a hero, hero!"**
-Isn't this familiar? Absolutely it is. No way you could forger about Disney's
-cool animation, Hercules.
+Isn't this familiar? Absolutely it is. No way you could forger about Disney's cool animation, Hercules.
 
 ![hercules.png](https://static.wikia.nocookie.net/disney/images/f/fa/Zero_to_Hero.png)
 [Source](https://disney.fandom.com/wiki/Zero_to_Hero)
 
-"Zero to Hero" is a phrase that is often used to describe a transformation from 
-a novice or beginner to an expert or accomplished individual. It can also refer 
-to a person who starts with very little and through hard work and determination,
- becomes successful. Throughout this journey, I want to take you to a 
-step-by-step guide on building a regression Machine Learning pipeline.
+"Zero to Hero" is a phrase that is often used to describe a transformation from a novice or beginner to an expert or accomplished individual. It can also refer to a person who starts with very little and through hard work and determination, becomes successful. Throughout this journey, I want to take you to a step-by-step guide on building a regression Machine Learning pipeline.
 
-This mini-project is about building a regression pipeline to predict the 
-`number of reviews per month` of each Airbnb property, trained based on a 
-dataset collected on September 2022 in London.
+This mini-project is about building a regression pipeline to predict the `number of reviews per month` of each Airbnb property, trained based on a dataset collected on September 2022 in London.
 
 ## Dataset
-The dataset to build this pipeline was captured from [Detailed Airbnb Listing Data (London, Sep 2022)](https://www.kaggle.com/datasets/mrnabiz/detailed-airbnb-listing-data-london-sep-2022) on
- Kaggle. The originad data was prepared by [Inside Airbnb project](http://insideairbnb.com/). 
- The mission of Inside Airbnb is to empower residential communities with data 
- and information that enables them to understand, make decisions and have 
- control over the effects of Airbnb's presence in their neighborhoods.
+The dataset to build this pipeline was captured from [Detailed Airbnb Listing Data (London, Sep 2022)](https://www.kaggle.com/datasets/mrnabiz/detailed-airbnb-listing-data-london-sep-2022) on Kaggle. The original data was prepared by [Inside Airbnb project](http://insideairbnb.com/). The mission of Inside Airbnb is to empower residential communities with data and information that enables them to understand, make decisions and have control over the effects of Airbnb's presence in their neighborhoods.
 
 ## Proposed ML pipeline
-This regression ML pipeline is built for predicting `number of reviews per month` 
-on London's Airbnb data.
-Predicting this number is important because it can help AirBnb to better 
-understand and manage customer engagement. This can have a number of benefits, 
-such as improving customer satisfaction, optimizing marketing efforts, increased revenue, and forecasting.
+This regression ML pipeline is built for predicting `number of reviews per month` on London's Airbnb data. Predicting this number is important because it can help AirBnb to better understand and manage customer engagement. This can have a number of benefits, such as improving customer satisfaction, optimizing marketing efforts, increased revenue, and forecasting.
 
 ## Sharing the Results
-This pipeline is created in Python, using a group of ML models from [scikit-learn](https://scikit-learn.org/stable/index.html) library.
-For the sake of reproducibility, all of the pipeline is scripted and the results will be stored in relevant directories.
-There is a notebook to report the performance of the various models which uses the stored results along with presenting them through visualizations.
-In order to render all the plots properly, a HTML version of this report has been updated too. [The report can be found here.](https://ubc-mds.github.io/eurovision_contest_rank_analysis/doc/report.html)
+This pipeline is created in Python, using a group of ML models from [scikit-learn](https://scikit-learn.org/stable/index.html) library. For the sake of reproducibility, all of the pipeline is scripted and the results will be stored in relevant directories. There is a notebook to report the performance of the various models which uses the stored results along with presenting them through visualizations. In order to render all the plots properly, a HTML version of this report has been updated too. [The report can be found here.](https://ubc-mds.github.io/eurovision_contest_rank_analysis/doc/report.html)
 
 ## Usage
 This pipeline can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project. To run this model follow the below steps:
+
+1. Clone this repository by running the code below in CLI:
+    git clone git@github.com:mrnabiz/zero-to-hero-ml-pipline.git
+2. Install the [Conda](https://docs.conda.io/en/latest/) environment by running the code below:
+    git clone git@github.com:mrnabiz/zero-to-hero-ml-pipline.git
 
 ## Download and store the raw data
 Download the data by running `src/data_wrangling/pull_data.py`:\
