@@ -28,10 +28,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from docopt import docopt
 import os
-from sklearn.ensemble import (
-    GradientBoostingRegressor,
-    RandomForestRegressor
-)
 from lightgbm.sklearn import LGBMRegressor
 from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split

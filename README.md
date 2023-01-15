@@ -25,6 +25,22 @@ The dataset to build this pipeline was captured from [Detailed Airbnb Listing Da
  and information that enables them to understand, make decisions and have 
  control over the effects of Airbnb's presence in their neighborhoods.
 
+## Proposed ML pipeline
+This regression ML pipeline is built for predicting `number of reviews per month` 
+on London's Airbnb data.
+Predicting this number is important because it can help AirBnb to better 
+understand and manage customer engagement. This can have a number of benefits, 
+such as improving customer satisfaction, optimizing marketing efforts, increased revenue, and forecasting.
+
+## Sharing the Results
+This pipeline is created in Python, using a group of ML models from [scikit-learn](https://scikit-learn.org/stable/index.html) library.
+For the sake of reproducibility, all of the pipeline is scripted and the results will be stored in relevant directories.
+There is a notebook to report the performance of the various models which uses the stored results along with presenting them through visualizations.
+In order to render all the plots properly, a HTML version of this report has been updated too. [The report can be found here.](https://ubc-mds.github.io/eurovision_contest_rank_analysis/doc/report.html)
+
+## Usage
+This pipeline can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project. To run this model follow the below steps:
+
 ## Download and store the raw data
 Download the data by running `src/data_wrangling/pull_data.py`:\
     `--file_path` should be the path where the data will be saved,\
@@ -88,3 +104,8 @@ Download the data by running `src/model_building/shap_feat_importances.py`:\
     `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes.
 
     python src/model_building/shap_feat_importances.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
+
+
+
+## References
+[Scikit-learn: Machine Learning in Python](https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html), Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.
