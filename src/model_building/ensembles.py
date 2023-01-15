@@ -30,7 +30,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from lightgbm.sklearn import LGBMRegressor
 from xgboost import XGBRegressor
 from sklearn.pipeline import make_pipeline
-from sklearn.externals import joblib
+import joblib
 from utils import mean_std_cross_val_scores
 from preprocessor import preprocessor
 import pickle
@@ -45,7 +45,7 @@ def main(output_dir, input_file_path):
 
     # Split the file for training and testing the model
     train_df, test_df = train_test_split(prep_feat_df,
-                                         test_size=0.9,
+                                         test_size=0.3,
                                          random_state=123)
     
     # Form the X and y of the training and test dataframes

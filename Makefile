@@ -42,7 +42,7 @@ results/model_results/results_dict.pkl results/model_results/scores_dict.pkl res
 	python src/model_building/linear_models.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
 
 # Run the non linear models (ensembles)
-results/model_results/results_dict.pkl results/model_results/04_linear_nonlinear_results_df.png results/model_results/05_scores_df.png results/model_results/06_top_feat_df.png results/model_results/top_feat_df.csv results/model_results/lgbm_model.joblib: src/model_building/ensembles.py data/preprocessed/feat_eng_df.cs
+results/model_results/04_linear_nonlinear_results_df.png results/model_results/05_scores_df.png results/model_results/06_top_feat_df.png results/model_results/top_feat_df.csv results/model_results/lgbm_model.joblib: src/model_building/ensembles.py data/preprocessed/feat_eng_df.csv
     python src/model_building/ensembles.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
 
 # Run the permutation feature importances analysis
