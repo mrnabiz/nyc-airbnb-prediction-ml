@@ -39,68 +39,80 @@ Now you have the required files and dependencies to reproduce the pipeline and d
 Navigate to the repository's root folder in CLI and follow the steps below:
 
 **Step 1**: Download the raw data by running `src/data_wrangling/pull_data.py`:\
-`--file_path` should be the path where the data will be saved,\
+`--file_path` should be the path where the data will be saved\
 `--url` should be the link to the data
 
     python src/data_wrangling/pull_data.py --file_path="data/raw/raw_df.csv" --url="http://data.insideairbnb.com/united-kingdom/england/london/2022-09-10/data/listings.csv.gz"
-## Clean the raw data frame to remove unnecessary columns
-Download the data by running `src/data_wrangling/clean_data.py`:\
-    `--output_file_path` should be the path where the clean data will be saved,\
+
+**Step 2**: Clean the raw data frame to remove unnecessary columns by running `src/data_wrangling/clean_data.py`:\
+    `--output_file_path` should be the path where the clean data will be saved\
     `--input_file_path` should be the path where the raw data is stored
 
     python src/data_wrangling/clean_data.py --output_file_path="data/raw/clean_df.csv" --input_file_path="data/raw/raw_df.csv"
 
-## Preprocess the cleaned to prepare it for the model building
-Download the data by running `src/data_wrangling/preprocessing.py`:\
-    `--output_file_path` should be the path where the clean data will be saved,\
+**Step 3**: Preprocesse the cleaned to prepare it for the model building by running `src/data_wrangling/preprocessing.py`:\
+    `--output_file_path` should be the path where the clean data will be saved\
     `--input_file_path` should be the path where the raw data is stored
 
     python src/data_wrangling/preprocessing.py --output_file_path="data/preprocessed/preprocessed_df.csv" --input_file_path="data/raw/clean_df.csv"
 
-## Run the EDA analysis
-Download the data by running `src/model_building/eda.py`:\
-    `--output_dir`  Path to folder where the EDA results will be saved, `in quotes.\
-    `--clean_df_file_path`  Path to folder and file name where the clean df is stored, including the name, `in quotes.\
-    `--preprocessed_df_file_path`  Path to folder and file name where the preprocessed df is stored, including the name, `in quotes.
+**Step 4**: Run the EDA analysis by running `src/model_building/eda.py`:\
+    `--output_dir`  Path to folder where the EDA results will be saved, `in quotes\
+    `--clean_df_file_path`  Path to folder and file name where the clean df is stored, including the name, `in quotes\
+    `--preprocessed_df_file_path`  Path to folder and file name where the preprocessed df is stored, including the name, `in quotes
 
     python src/model_building/eda.py --output_dir="results/eda_plots" --clean_df_file_path="data/raw/clean_df.csv"  --preprocessed_df_file_path="data/preprocessed/preprocessed_df.csv"
 
-## Run the feature engineering script
-Download the data by running `src/model_building/feat_eng.py`:\
-    `--output_file_path` should be the path where the file with new features will be saved,\
-    `--input_file_path`  should be the path where the preprocessed data is stored.
+**Step 4**: Run the feature engineering script by running `src/model_building/feat_eng.py`:\
+    `--output_file_path` should be the path where the file with new features will be saved\
+    `--input_file_path`  should be the path where the preprocessed data is stored
 
     python src/model_building/feat_eng.py --output_file_path="data/preprocessed/feat_eng_df.csv" --input_file_path="data/preprocessed/preprocessed_df.csv"
 
-## Run the linear models
-Download the data by running `src/model_building/linear_models.py`:\
-    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes.\
-    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes.
+**Step 5**: Run the linear models by running `src/model_building/linear_models.py`:\
+    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes\
+    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes
 
     python src/model_building/linear_models.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
 
-## Run the non linear models (ensembles)
-Download the data by running `src/model_building/ensembles.py`:\
-    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes.\
-    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes.
+**Step 6**: Run the non linear models (ensembles) by running `src/model_building/ensembles.py`:\
+    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes\
+    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes
 
     python src/model_building/ensembles.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
 
-## Run the permutation feature importances analysis 
-Download the data by running `src/model_building/perm_feat_importances.py`:\
-    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes.\
-    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes.
+**Step 7**: Run the permutation feature importances analysis by running `src/model_building/perm_feat_importances.py`:\
+    `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes\
+    `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes
 
     python src/model_building/perm_feat_importances.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
 
-## Run the SHAP analysis 
-Download the data by running `src/model_building/shap_feat_importances.py`:\
+**Step 8**: Run the SHAP analysis by running `src/model_building/shap_feat_importances.py`:\
     `--output_dir`  Path to folder where the model results dictionary will be saved, `in quotes.\
     `--input_file_path`  Path to folder and file name where the preprocessed file with engineered features is stored, including the name, `in quotes.
 
     python src/model_building/shap_feat_importances.py --output_dir="results/model_results" --input_file_path="data/preprocessed/feat_eng_df.csv"
 
+### Option 2: Running the make file
+Before running the pipeline through the make file, please use the code below to reset the repository-generated files. In the terminal, browse to the root folder of the repository and run:
 
+    make clean
+
+After using the `make clean` command to reproduce the model pipeline, use the command below in the repository's root folder. Please ensure that you have followed the dependencies installation.
+
+    make all
+
+## Dependecies
+I have created an environment ([environment.yml](https://github.com/mrnabiz/zero-to-hero-ml-pipline/blob/main/environment.yml)) for Python 3.10.6 in which the reproduction of pipeline can be done. To create this environment on your machine run:
+
+    conda env create -f environment.yml
+
+Activate it by running:
+
+    conda activate zero-to-hero-ml
+
+## License
+The materials of this project are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
 
 ## References
 [Scikit-learn: Machine Learning in Python](https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html), Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.
