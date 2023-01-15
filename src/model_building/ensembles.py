@@ -30,6 +30,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from lightgbm.sklearn import LGBMRegressor
 from xgboost import XGBRegressor
 from sklearn.pipeline import make_pipeline
+from sklearn.externals import joblib
 from utils import mean_std_cross_val_scores
 from preprocessor import preprocessor
 import pickle
@@ -44,7 +45,7 @@ def main(output_dir, input_file_path):
 
     # Split the file for training and testing the model
     train_df, test_df = train_test_split(prep_feat_df,
-                                         test_size=0.3,
+                                         test_size=0.9,
                                          random_state=123)
     
     # Form the X and y of the training and test dataframes
@@ -234,12 +235,14 @@ def main(output_dir, input_file_path):
             }
             ).set_index('Rank')
 
-    # Save the results 
+    # Save the results and the model
     output_results_dict = output_dir + '/results_dict.pkl'
     output_results_df_png = output_dir + '/04_linear_nonlinear_results_df.png'
     output_scores_df_png = output_dir + '/05_scores_df.png'
     output_top_feat_png = output_dir + '/06_top_feat_df.png'
     output_top_feat_df = output_dir + '/top_feat_df.csv'
+    output_best_model = output_dir + '/lgbm_model.joblib'
+
     
     try:
         with open(output_results_dict, 'wb') as f:
@@ -248,6 +251,7 @@ def main(output_dir, input_file_path):
         dfi.export(scores_df, output_scores_df_png, dpi=200)
         dfi.export(top_feat_ranking, output_top_feat_png, dpi=200)
         top_feat_ranking.to_csv(output_top_feat_df, index = False)
+        joblib.dump(lgbm_pipeline, output_best_model)
 
     except:
         os.makedirs(os.path.dirname(output_results_dict))
@@ -257,6 +261,7 @@ def main(output_dir, input_file_path):
         dfi.export(scores_df, output_scores_df_png, dpi=200)
         dfi.export(top_feat_ranking, output_top_feat_png, dpi=200)
         top_feat_ranking.to_csv(output_top_feat_df, index = False)
+        joblib.dump(lgbm_pipeline, output_best_model)
 
 if __name__ == "__main__":
     main(opt["--output_dir"], opt["--input_file_path"])   
